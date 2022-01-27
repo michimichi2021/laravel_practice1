@@ -1,20 +1,14 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/style.css">
-    <title>MyBBS</title>
-</head>
-<body>
-    <div class = "container">
+<x-layout>
+    <x-slot name="title">
+        My BBS
+    </x-slot>
+
     <h1>My BBS</h1>
     <ul>
 
         @forelse ($posts as $index => $post)
             <li>
-                <a href="/posts/{{ $index }}">
+                <a href="{{ route('posts.show', $index) }}">
                     {{ $post }}
                 </a>
             </li>
@@ -22,6 +16,4 @@
             <li>No posts yet!</li>
         @endforelse
     </ul>
-    </div>
-</body>
-</html>
+</x-layout>
